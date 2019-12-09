@@ -1,0 +1,532 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+}
+
+body {
+    background: #eee;
+    color: #444;
+    -webkit-font-smoothing: antialiased;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 400;
+    height: auto !important;
+    min-height: 100%;
+    text-rendering: optimizeLegibility;
+}
+
+header {
+    background-color: black;
+    border-bottom: 1px solid rgba(0,0,0,.15);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+header > #logo {
+    position: relative;
+    padding: .5rem 0;
+}
+
+header > .menuDown {
+    box-shadow: 0 3px 5px rgba(0,0,0,.15);
+}
+
+header > .menuUp {
+    box-shadow: none;
+}
+
+header > div#logo > div#navToggle {
+    background-color: rgba(0,0,0,.15);
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: 300ms all ease;
+    height: 100%;
+}
+
+header > div#logo > div#navToggle:hover {
+    background-color: rgba(150,150,150,.4);
+}
+
+header > div#logo > div#navToggle > a {
+    color: rgba(255,255,255,.85);
+    display: block;
+    font-size: 0.85em;
+    font-weight: 600;
+    padding: 2.0rem 2.5rem;
+    text-decoration: none;
+    transition: 300ms all ease;
+}
+
+header > div#logo > div#navToggle:hover > a {
+    color: rgba(255,0,0,1);
+}
+
+header > nav {
+    background-color: white;
+    display: none;
+    flex: 1;
+    transform: 300ms all ease;
+}
+
+header nav > ul {
+    list-style-type: none;
+}
+
+header nav > ul > li {
+    border-bottom: 1px dotted rgba(0,0,0,.1);
+    position: relative;
+}
+
+header nav > ul > li:last-of-type {
+    border-bottom: none;
+}
+
+header nav > ul > li > a {
+    display: block;
+    color: rgba(0,0,0,.65);
+    font-weight: 700;
+    padding: 1.5rem 0;
+    text-decoration: none;
+    transition: 250ms all ease;
+}
+
+header nav > ul > li > a span.toggle {
+    background-color: rgba(0,0,0,.05);
+    border-radius: 3rem;
+    color: rgba(0,0,0,.25);
+    font-size: 0.75em;
+    font-weight: 500;
+    padding: 2px 8px;
+    text-transform: lowercase;
+}
+
+header nav > ul > li > a span.caret {
+    display: none;
+}
+
+header > nav > ul > li:hover > a {
+    color: rgb(255, 0, 0);
+}
+
+header > nav > ul > li > nav {
+    background-color: rgb(51,51,51);
+    border-radius: 1.5em;
+    box-shadow: 0 2px 8px rgba(0,0,0,.6);
+    display: none;
+    overflow: hidden;
+    position: absolute;
+    right: 5%;
+    width: 90%;
+    z-index: 100;
+}
+
+header > nav > ul > li > nav > ul > li > a {
+    color: rgba(255,255,255,.85);
+    transition: 300ms all ease;
+}
+
+header > nav > ul > li > nav > ul > li:hover > a {
+    background-color: rgba(0,0,0,.6);
+    color: rgba(255,255,255,1);
+}
+
+/* Slideshow container */
+.slideshow-container {
+    margin: auto;
+    position: relative;
+    box-shadow: 0 5px 16px 0 rgba(0,0,0,0.24), 0 10px 50px 0 rgba(0,0,0,0.19);
+}
+
+/* Hide the images by default */
+.mySlides {
+    display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+.sliderCaption {
+    color: #f2f2f2;
+    font-size: 3vw;
+    padding: 8px 12px;
+    position: absolute;
+    top: 10%;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.sliderCaption h1, .sliderCaption p {
+    width: 75%;
+    text-align: center;
+    margin: 0 auto;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+
+/* The dots/bullets/indicators */
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #444444;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.dots {
+    margin-bottom: 2rem;
+}
+
+
+.active, .dot:hover {
+    background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+.button {
+    border: none;
+    color: white;
+    padding: .5rem 1rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 2vw;
+    margin-top: 1rem;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+.buttonNetwork {
+    background-color: transparent;
+    color: white;
+    border: 2px solid #008CBA;
+}
+
+.buttonNetwork:hover {
+    background-color: #008CBA;
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.service {
+    display: flex !important;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.service > article {
+    width: 100%;
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.service > article > p {
+    text-align: left;
+    line-height: 1.5rem;
+    margin-top: 1rem;
+    padding: 1rem;
+}
+
+.service > article > h2 {
+    margin-top: 1rem;
+}
+
+.extendedServices {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.5rem;
+    padding: 3rem 0;
+}
+
+.extendedServices > p, .extendedServices > img  {
+    padding: 1rem 1rem;
+}
+
+.box {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.item-1 {
+    order: 1;
+}
+
+.item-2 {
+    order: 2;
+}
+
+.item-3 {
+    order: 4;
+}
+
+.item-4 {
+    order: 3;
+}
+
+.responsive {
+    width: 100%;
+    height: auto;
+}
+
+footer {
+    display: flex;
+    background-color: black;
+    color: white;
+    font-size: 1.2rem;
+}
+
+footer > p {
+    padding: 1.1rem 0 1.1rem .2rem;
+}
+
+footer > a {
+    padding: .5rem .5rem;
+    margin-left: auto;
+}
+
+footer > a > .fa:hover {
+    color: white !important;
+}
+
+hr {
+    width: 80%;
+    margin: 0 auto;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+
+    .slideshow-container, .sliderCaption, .slideshow-inner, .dot {
+        display: none;
+    }
+
+    .dots {
+        margin: 0!important;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Medium screens */
+@media all and (min-width: 1200px) {
+    header > div#logo > div#navToggle {
+        display: none;
+    }
+
+    header {
+        background-color: black;
+        display: flex;
+        flex-direction: row;
+        padding: 0 3rem;
+        text-align: left;
+        width: 100%;
+    }
+
+    header > div#logo {
+        background-color: transparent;
+        padding: .5rem 0;
+    }
+
+    header > div#logo > h1 {
+        color: rgb(140, 193, 193);
+    }
+
+    header > nav {
+        background-color: transparent;
+        display: block;
+    }
+
+    header > nav > ul {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-end;
+    }
+
+    header nav > ul > li {
+        border-bottom: none;
+    }
+
+    header nav > ul > li > a {
+        padding: 2.5rem 1.25rem;
+        color: white;
+    }
+
+    header nav > ul > li > a span.toggle {
+        display: none;
+    }
+
+    header nav > ul > li > a span.caret {
+        border-bottom: 4px solid transparent;
+        border-top: 4px solid rgba(0,0,0,.65);
+        border-right: 4px solid transparent;
+        border-left: 4px solid transparent;
+        border-radius: 1px;
+        content: "";
+        display: inline-block;
+        height: 0;
+        margin: 0 0 0 .25rem;
+        transition: 250ms all ease;
+        width: 0;
+        vertical-align: middle;
+    }
+
+    header nav > ul > li:hover > a span.caret {
+        border-top-color: rgb(140, 193, 193);
+        transform: rotate(270deg);
+    }
+
+    header > nav > ul > li:hover > nav {
+        background-color: rgb(51,51,51);
+        border-radius: .25em;
+        box-shadow: 0 2px 8px rgba(0,0,0,.6);
+        display: block;
+        line-height: 3em;
+        right: -50%;
+        width: 196px;
+    }
+
+    /* Slideshow container */
+    .slideshow-container {
+        position: relative;
+        flex: 1;
+    }
+    .sliderCaption {
+        font-size: 2vw;
+        top: 25%;
+    }
+
+    .button {
+        background-color: transparent;
+        border: none;
+        color: white;
+        padding: 1rem 2rem;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 2vw;
+        margin-top: 1rem;
+    }
+
+    .buttonNetwork {
+        background-color: transparent;
+        color: white;
+        border: 2px solid #008CBA;
+    }
+
+    .buttonNetwork:hover {
+        background-color: #008CBA;
+        color: white;
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+
+    .service > article {
+        width: 33%;
+        padding: 1rem;
+        text-align: center;
+    }
+
+    .extendedServices {
+        display: flex;
+        flex-direction: row;
+        line-height: 1.5rem;
+    }
+
+    .extendedServices > p, .extendedServices > img  {
+        padding: 1rem;
+    }
+
+    .item-1 {
+        order: 1;
+    }
+
+    .item-2 {
+        order: 2;
+    }
+
+    .item-3 {
+        order: 3;
+    }
+
+    .item-4 {
+        order: 4;
+    }
+
+    footer {
+        display: flex;
+        background-color: black;
+        color: white;
+        font-size: 1.2rem;
+    }
+
+    footer p {
+        margin-right: 3rem;
+        padding: 1.5rem 2rem;
+    }
+
+    footer > a {
+        text-decoration: none;
+        color: white;
+        display: inline-block;
+        vertical-align: middle;
+        padding: 1rem 1rem;
+        margin-left: auto;
+    }
+}

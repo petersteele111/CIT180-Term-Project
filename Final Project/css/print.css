@@ -1,0 +1,20 @@
+* {
+    font-size: 16px;
+    text-align: left;
+    display: block;
+    text-decoration: none;
+    list-style-type: none;
+    color: black;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+
+}
+
+.sliderCaption, .slideshow-container, .slideshow-inner, img, nav, header, hr, .fa {
+    display: none;
+}
+
+.box {
+    box-shadow: none;
+}
